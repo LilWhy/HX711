@@ -14,7 +14,6 @@ if not os.getegid() == 0:
     sys.exit('Script must be run as root')
 
 from pyA20.gpio import gpio
-from pyA20.gpio import port
 
 
 class HX711:
@@ -65,7 +64,7 @@ class HX711:
        
         gpio.init()
         gpio.setcfg(self., gpio.OUTPUT)
-         gpio.setcfg(self._dout, gpio.INPUT)
+        gpio.setcfg(self._dout, gpio.INPUT)
         #GPIO.setup(self.  , GPIO.OUT)  # pin _pd_sck is output only
         #GPIO.setup(self._dout, GPIO.IN)  # pin _dout is input only
         self.select_channel(select_channel)
