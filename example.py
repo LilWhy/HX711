@@ -4,7 +4,6 @@ from pyA20.gpio import port
 from hx711 import HX711  # import the class HX711
 
 try:
-    GPIO.setmode(GPIO.BCM)  # set GPIO pin mode to BCM numbering
     # Create an object hx which represents your real hx711 chip
     # Required input parameters are only 'dout_pin' and 'pd_sck_pin'
     hx = HX711(dout_pin=port.PC2, pd_sck_pin= port.PC0)
