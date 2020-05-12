@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pyA20.gpio import gpio
 from pyA20.gpio import port  
-from hx711 import HX711  # import the class HX711
+from HX711 import HX711  # import the class HX711
 
 try:
     # Create an object hx which represents your real hx711 chip
@@ -43,7 +43,7 @@ try:
         # the ratio for current channel and gain.
         ratio = reading / value  # calculate the ratio for channel A and gain 128
         hx.set_scale_ratio(ratio)  # set ratio for current channel
-        print('Ratio is set.')
+        print(ratio)
     else:
         raise ValueError('Cannot calculate mean value. Try debug mode. Variable reading:', reading)
 
@@ -54,10 +54,7 @@ try:
     input('Press Enter to begin reading')
     print('Current weight on the scale in grams is: ')
     while True:
-        print(hx.get_weight_mean(20), 'g')
+        print(hx.get_weight_mean(1), 'g')
 
 except (KeyboardInterrupt, SystemExit):
     print('Bye :)')
-
-finally:
-    GPIO.cleanup()
